@@ -20,11 +20,11 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [Amapiano_Festival] <a name="about-project"></a>
+# 📖 [Awesome_books] <a name="about-project"></a>
 
-[Amapiano festival is an Afro music festival with a theme of amapiano music originally from South Africa]
+[Awesome books is a booklist adding website for checking and adding books to the local storage]
 
-**[Awesome_books]** is a promotional website for an Amapiano music festival.
+**[Awesome_books]** is an editing system for books
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -42,10 +42,10 @@ Built with HTML, CSS and Javascript
 
 ### Key Features <a name="key-features"></a>
 
-- Shows the date and time of the music festival
-- Shows the main artists to perform
-- Shows the prices for the concert
-- Shows the lcoation of the event
+- Shows the Available books on the site
+- Shows the Title of the book
+- Shows the Author of the book
+- Keeps the list even if the page is refreshed
 
 - **[Personal_Projects]**
 - **[Design_SKills]**
@@ -55,8 +55,6 @@ Built with HTML, CSS and Javascript
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link]()
-
-<!-- update the above -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,7 +106,7 @@ cd folder-name
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/mj-e-boc/M-J-Portfolio/issues).
+Feel free to check the [issues page](https://github.com/mj-e-boc/Awesome-Books/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
