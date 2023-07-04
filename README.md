@@ -82,11 +82,17 @@ cd folder-name
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author1**
+👤 **Ronald Mjonono**
 
 - GitHub: [@mj-e-boc](https://github.com/mj-e-boc)
 - Twitter: [@mjononoronald](https://twitter.com/Mjononoronald)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ronald-mjonono-86365988/)
+
+👤 **Ricardo Egas**
+
+- GitHub: [@githubhandle](https://github.com/RicardoEgas)
+- Twitter: [@twitterhandle](https://twitter.com/RjEgas)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ricardo-egas-952125136)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
