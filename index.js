@@ -10,7 +10,9 @@ const bookList = document.querySelector('.books');
 
 // Storage functions
 
-function getBook() {
+class Storage {
+
+static getBook() {
   let books;
   if (localStorage.getItem('books') === null) {
     books = [];
@@ -20,23 +22,24 @@ function getBook() {
 
   return books;
 }
-function addBook(newBook) {
-  const books = getBook();
+static addBook(newBook) {
+  const books = Storage.getBook();
   books.push(newBook);
   localStorage.setItem('books', JSON.stringify(books));
 }
-function removeBook(title) {
-  const books = getBook();
+static removeBook(title) {
+  const books = Storage.getBook();
   const index = books.findIndex((book) => book.title === title);
   if (index !== -1) {
     books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
+}
 
 // Populate Books from Local Storage
 
-const books = getBook();
+const books = Storage.getBook();
 books.forEach((book) => bookList.insertAdjacentHTML(
   'afterbegin',
   `<div><p>${book.title}</p> <p>${book.author}</p> <button class="remove-btn">remove</button></div>`,
@@ -54,7 +57,7 @@ function displayNew() {
       'afterbegin',
       `<div><p>${newBook.title}</p> <p>${newBook.author}</p> <button class="remove-btn">remove</button></div>`,
     );
-    addBook(newBook);
+    Storage.addBook(newBook);
     document.getElementById('author').value = '';
     document.getElementById('title').value = '';
   } else {
@@ -81,5 +84,5 @@ document.addEventListener('click', (e) => {
     target.parentElement.remove();
   }
 
-  removeBook(title);
+  Storage.removeBook(title);
 });
