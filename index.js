@@ -6,18 +6,18 @@ class Book {
   }
 }
 
-const buttonAdd = document.querySelector('.addbook');
-const bookList = document.querySelector('.books');
+const buttonAdd = document.querySelector(".addbook");
+const bookList = document.querySelector(".books");
 
 // Storage functions
 
 class Storage {
   static getBook() {
     let books;
-    if (localStorage.getItem('books') === null) {
+    if (localStorage.getItem("books") === null) {
       books = [];
     } else {
-      books = JSON.parse(localStorage.getItem('books'));
+      books = JSON.parse(localStorage.getItem("books"));
     }
 
     return books;
@@ -26,7 +26,7 @@ class Storage {
   static addBook(newBook) {
     const books = Storage.getBook();
     books.push(newBook);
-    localStorage.setItem('books', JSON.stringify(books));
+    localStorage.setItem("books", JSON.stringify(books));
   }
 
   static removeBook(title) {
@@ -34,7 +34,7 @@ class Storage {
     const index = books.findIndex((book) => book.title === title);
     if (index !== -1) {
       books.splice(index, 1);
-      localStorage.setItem('books', JSON.stringify(books));
+      localStorage.setItem("books", JSON.stringify(books));
     }
   }
 }
@@ -42,33 +42,35 @@ class Storage {
 // Populate Books from Local Storage
 
 const books = Storage.getBook();
-books.forEach((book) => bookList.insertAdjacentHTML(
-  'afterbegin',
-  `<div><p>${book.title}</p> <p>${book.author}</p> <button class="remove-btn">remove</button></div>`,
-));
+books.forEach((book) =>
+  bookList.insertAdjacentHTML(
+    "afterbegin",
+    `<div class='bookstyle'><p>${book.title}</p> <p>${book.author}</p> <button class="remove-btn">remove</button></div>`
+  )
+);
 
 // Display new Books
 class UI {
   static displayNew() {
-    const author = document.getElementById('author').value;
-    const title = document.getElementById('title').value;
+    const author = document.getElementById("author").value;
+    const title = document.getElementById("title").value;
     const newBook = new Book(title, author);
 
     if (title && author) {
       bookList.insertAdjacentHTML(
-        'afterbegin',
-        `<div><p>${newBook.title}</p> <p>${newBook.author}</p> <button class="remove-btn">remove</button></div>`,
+        "afterbegin",
+        `<div><p>${newBook.title}</p> <p>${newBook.author}</p> <button class="remove-btn">remove</button></div>`
       );
       Storage.addBook(newBook);
-      document.getElementById('author').value = '';
-      document.getElementById('title').value = '';
+      document.getElementById("author").value = "";
+      document.getElementById("title").value = "";
     } else {
       buttonAdd.insertAdjacentHTML(
-        'afterend',
-        '<p class="error-msg">Please enter a valid title and author<p>',
+        "afterend",
+        '<p class="error-msg">Please enter a valid title and author<p>'
       );
       setTimeout(() => {
-        const errorMsg = document.querySelector('.error-msg');
+        const errorMsg = document.querySelector(".error-msg");
         errorMsg.remove();
       }, 3000);
     }
@@ -77,11 +79,12 @@ class UI {
 
 // Event Listeners
 
-buttonAdd.addEventListener('click', UI.displayNew);
+buttonAdd.addEventListener("click", UI.displayNew);
 
-document.addEventListener('click', (e) => {
-  const target = e.target.closest('.remove-btn');
-  const title = target.previousElementSibling.previousElementSibling.textContent;
+document.addEventListener("click", (e) => {
+  const target = e.target.closest(".remove-btn");
+  const title =
+    target.previousElementSibling.previousElementSibling.textContent;
 
   if (target) {
     target.parentElement.remove();
