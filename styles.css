@@ -2,29 +2,32 @@ body {
   padding: 0 3%;
 }
 
-.books{
-  border: 1px solid black;
-
+h1 {
+  text-align: center;
 }
 
-.books button{
+.books {
+  border: 2px solid black;
+}
+
+.books button {
   box-shadow: 3px 2px;
   width: 20%;
-  padding:1%;
+  padding: 1%;
 }
 
-.bookstyle{
+.bookstyle {
   display: flex;
-   padding: 0.5% 3%;
-   flex-direction: row;
+  padding: 0.5% 3%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.bookstyle :nth-child(3){
-  margin-left: auto;
- 
+.bookstyle:nth-child(odd) {
+  background-color: lightgray;
 }
 
-.inputs{
+.inputs {
   text-align: center;
   margin-top: auto;
   display: flex;
@@ -32,19 +35,23 @@ body {
   position: relative;
 }
 
-input{
-  width:30% ;
- margin: 1% auto;
- border: 1px solid black;
+input {
+  width: 30%;
+  margin: 1% auto;
+  border: 2px solid black;
 }
 
-.addbook{
+.addbook {
   width: 10%;
   margin: 0 auto;
-  box-shadow:3px 2px ;
+  box-shadow: 3px 2px;
   position: absolute;
-  right:35%;
-  top:100%;
-  
+  right: 35%;
+  top: 100%;
 }
 
+hr {
+  border: 1px solid rgb(0, 0, 0);
+  width: 60%;
+  margin: 1rem auto;
+}
