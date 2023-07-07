@@ -148,7 +148,7 @@ footer h4 {
 }
 
 .showBooks {
-  display: block;
+  display: none;
 }
 
 .nav-list a:hover {
