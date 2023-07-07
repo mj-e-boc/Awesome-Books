@@ -44,7 +44,7 @@ class Storage {
 const books = Storage.getBook();
 books.forEach((book) => bookList.insertAdjacentHTML(
   'afterbegin',
-  `<div class='bookstyle'><div><span>${book.title}</span> <span>by</span> <span>${book.author}</span></div> <button class="remove-btn">remove</button></div>`,
+  `<div class='bookstyle'><div><span>${book.title}</span> <span>by</span> <span>${book.author}</span></div> <button class="remove-btn">Remove</button></div>`,
 ));
 
 // Display new Books
@@ -57,7 +57,7 @@ class UI {
     if (title && author) {
       bookList.insertAdjacentHTML(
         'afterbegin',
-        `<div class='bookstyle'><div><span>${newBook.title}</span> <span>by</span> <span>${newBook.author}</span></div> <button class="remove-btn">remove</button></div>`,
+        `<div class='bookstyle'><div><span>${newBook.title}</span> <span>by</span> <span>${newBook.author}</span></div> <button class="remove-btn">Remove</button></div>`,
       );
       Storage.addBook(newBook);
       document.getElementById('author').value = '';
