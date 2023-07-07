@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -10,76 +11,82 @@ const bookList = document.querySelector('.books');
 
 // Storage functions
 
-function getBook() {
-  let books;
-  if (localStorage.getItem('books') === null) {
-    books = [];
-  } else {
-    books = JSON.parse(localStorage.getItem('books'));
+class Storage {
+  static getBook() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+
+    return books;
   }
 
-  return books;
-}
-function addBook(newBook) {
-  const books = getBook();
-  books.push(newBook);
-  localStorage.setItem('books', JSON.stringify(books));
-}
-function removeBook(title) {
-  const books = getBook();
-  const index = books.findIndex((book) => book.title === title);
-  if (index !== -1) {
-    books.splice(index, 1);
+  static addBook(newBook) {
+    const books = Storage.getBook();
+    books.push(newBook);
     localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(title) {
+    const books = Storage.getBook();
+    const index = books.findIndex((book) => book.title === title);
+    if (index !== -1) {
+      books.splice(index, 1);
+      localStorage.setItem('books', JSON.stringify(books));
+    }
   }
 }
 
 // Populate Books from Local Storage
 
-const books = getBook();
+const books = Storage.getBook();
 books.forEach((book) => bookList.insertAdjacentHTML(
   'afterbegin',
-  `<div><p>${book.title}</p> <p>${book.author}</p> <button class="remove-btn">remove</button></div>`,
+  `<div class='bookstyle'><div><span>${book.title}</span> <span>by</span> <span>${book.author}</span></div> <button class="remove-btn">remove</button></div>`,
 ));
 
 // Display new Books
+class UI {
+  static displayNew() {
+    const author = document.getElementById('author').value;
+    const title = document.getElementById('title').value;
+    const newBook = new Book(title, author);
 
-function displayNew() {
-  const author = document.getElementById('author').value;
-  const title = document.getElementById('title').value;
-  const newBook = new Book(title, author);
-
-  if (title && author) {
-    bookList.insertAdjacentHTML(
-      'afterbegin',
-      `<div><p>${newBook.title}</p> <p>${newBook.author}</p> <button class="remove-btn">remove</button></div>`,
-    );
-    addBook(newBook);
-    document.getElementById('author').value = '';
-    document.getElementById('title').value = '';
-  } else {
-    buttonAdd.insertAdjacentHTML(
-      'afterend',
-      '<p class="error-msg">Please enter a valid title and author<p>',
-    );
-    setTimeout(() => {
-      const errorMsg = document.querySelector('.error-msg');
-      errorMsg.remove();
-    }, 3000);
+    if (title && author) {
+      bookList.insertAdjacentHTML(
+        'afterbegin',
+        `<div class='bookstyle'><div><span>${newBook.title}</span> <span>by</span> <span>${newBook.author}</span></div> <button class="remove-btn">remove</button></div>`,
+      );
+      Storage.addBook(newBook);
+      document.getElementById('author').value = '';
+      document.getElementById('title').value = '';
+    } else {
+      buttonAdd.insertAdjacentHTML(
+        'afterend',
+        '<p class="error-msg">Please enter a valid title and author<p>',
+      );
+      setTimeout(() => {
+        const errorMsg = document.querySelector('.error-msg');
+        errorMsg.remove();
+      }, 3000);
+    }
   }
 }
 
 // Event Listeners
 
-buttonAdd.addEventListener('click', displayNew);
+buttonAdd.addEventListener('click', UI.displayNew);
 
 document.addEventListener('click', (e) => {
   const target = e.target.closest('.remove-btn');
-  const title = target.previousElementSibling.previousElementSibling.textContent;
+  const title = target.previousElementSibling.firstChild.textContent;
 
   if (target) {
     target.parentElement.remove();
   }
 
-  removeBook(title);
+  Storage.removeBook(title);
 });
+/* eslint-disable max-classes-per-file */

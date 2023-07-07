@@ -2,7 +2,56 @@ body {
   padding: 0 3%;
 }
 
-/* .inputs{
-    display: flex;
-    flex-direction: column;
-} */
+h1 {
+  text-align: center;
+}
+
+.books {
+  border: 2px solid black;
+}
+
+.books button {
+  box-shadow: 3px 2px;
+  width: 20%;
+  padding: 1%;
+}
+
+.bookstyle {
+  display: flex;
+  padding: 0.5% 3%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bookstyle:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.inputs {
+  text-align: center;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+input {
+  width: 30%;
+  margin: 1% auto;
+  border: 2px solid black;
+}
+
+.addbook {
+  width: 10%;
+  margin: 0 auto;
+  box-shadow: 3px 2px;
+  position: absolute;
+  right: 35%;
+  top: 100%;
+}
+
+hr {
+  border: 1px solid rgb(0, 0, 0);
+  width: 60%;
+  margin: 1rem auto;
+}
