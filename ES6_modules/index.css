@@ -115,11 +115,11 @@ nav {
 footer {
   position: fixed;
   bottom: 0;
-
   border: 2px solid #000;
   margin: 2% auto;
   text-align: left;
   width: 90%;
+
   /* padding-left: 1rem; */
 }
 
@@ -156,5 +156,3 @@ footer h4 {
 .nav-list a:hover {
   text-decoration: underline;
 }
-
-
