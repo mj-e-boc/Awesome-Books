@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Books</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+        <header>
+            <nav>
+                <h3>Awesome Books</h3>
+                <ul class="nav-list">
+                    <li><a href="#books" id="list-item">List</a></li>
+                    <li><a href="#addbook" id="add-item">Add</a></li>
+                    <li><a href="#Information" id="contact-item">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="date"></div>
+        </header>
+
+        <section class="showBooks" id="books">
+            <h1>All Awesome books</h1>
+            <div class="books"></div>
+            <hr>
+        </section>
+
+        <section class="add-Book" id="addbook">
+            <div class="inputs">
+                <div class="addnew"><h2>Add new book</h2></div>
+                <input type="text" id="title" name="title" placeholder="Title">
+                <input type="text" id="author" name="author" placeholder="Author">
+                <button class="addbook">Add</button>
+            </div>
+        </section>
+
+        <section class="Info" id="Information">
+            <div class="contact">
+                <h1>Contact Information</h1>
+                <p>Do you have any questions or you just want to say "Hello"?</p>
+                <p>You can reach out to us!</p>
+                <div class="contact-container">
+                    <ul class="contact-list">
+                        <li>Our email: mail@mail.com</li>
+                        <li>Our phone number: 0043586534422</li>
+                        <li>Our address: street name 22, 84503 City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h4>© 2023 Awesome Books</h4>
+        </footer>
+    </main>
+
+    <script src="./modules/Storage.js" type="module"></script>
+    <script src="./modules/Book.js" type="module"></script>
+    <script src="./index.js" type="module"></script>
+</body>
+</html>
+
