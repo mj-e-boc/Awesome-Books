@@ -44,7 +44,7 @@ class Storage {
 const books = Storage.getBook();
 books.forEach((book) => bookList.insertAdjacentHTML(
   'afterbegin',
-  `<div class='bookstyle'><div><span>${book.title}</span> <span>by</span> <span>${book.author}</span></div> <button class="remove-btn">remove</button></div>`,
+  `<div class='bookstyle'><div><span>${book.title}</span> <span>by</span> <span>${book.author}</span></div> <button class="remove-btn">Remove</button></div>`,
 ));
 
 // Display new Books
@@ -57,7 +57,7 @@ class UI {
     if (title && author) {
       bookList.insertAdjacentHTML(
         'afterbegin',
-        `<div class='bookstyle'><div><span>${newBook.title}</span> <span>by</span> <span>${newBook.author}</span></div> <button class="remove-btn">remove</button></div>`,
+        `<div class='bookstyle'><div><span>${newBook.title}</span> <span>by</span> <span>${newBook.author}</span></div> <button class="remove-btn">Remove</button></div>`,
       );
       Storage.addBook(newBook);
       document.getElementById('author').value = '';
@@ -90,3 +90,44 @@ document.addEventListener('click', (e) => {
   Storage.removeBook(title);
 });
 /* eslint-disable max-classes-per-file */
+
+// single page app
+
+const contactLink = document.querySelector('#contact-item');
+const addLink = document.querySelector('#add-item');
+const listLink = document.querySelector('#list-item');
+const contactInformation = document.querySelector('.Info');
+const listOfBooks = document.querySelector('.showBooks');
+const addBook = document.querySelector('.add-Book');
+
+function hideItem(element) {
+  element.style.display = 'none';
+}
+function showItem(element) {
+  element.style.display = 'block';
+}
+
+contactLink.addEventListener('click', () => {
+  showItem(contactInformation);
+  hideItem(addBook);
+  hideItem(listOfBooks);
+});
+
+listLink.addEventListener('click', () => {
+  showItem(listOfBooks);
+  hideItem(contactInformation);
+  hideItem(addBook);
+});
+
+addLink.addEventListener('click', () => {
+  showItem(addBook);
+  hideItem(contactInformation);
+  hideItem(listOfBooks);
+});
+
+// time element
+const datetime = document.querySelector('.date');
+setInterval(() => {
+  const date = new Date();
+  datetime.innerHTML = `${date.toDateString()}, ${date.toLocaleTimeString()}`;
+}, 1000);
